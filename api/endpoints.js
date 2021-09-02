@@ -15,7 +15,7 @@ router.post("/register", validateUser, (req, res) => {
     res.status(201).json(req.user)
 })
 
-router.post("/login", validateUser, (req, res) => {
+router.post("/login", validateUser, (req, res, next) => {
     const { user } = req
     const registeredUser = users.find(u => 
         u.password === user.password && u.username === user.username
